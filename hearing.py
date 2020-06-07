@@ -186,7 +186,7 @@ def make_parsed_hearing(
         "defendants": get_defendants(soup),
         "case_number": get_case_number(soup),
         "defendant_zip": get_zip(get_defendant_elements(soup)[0]),
-        "plaintff_zip": get_zip(get_plaintiff_elements(soup)[0]),
+        "plaintiff_zip": get_zip(get_plaintiff_elements(soup)[0]),
         "hearing_date": get_hearing_date(soup),
         "hearing_time": get_hearing_time(soup),
         "hearing_officer": get_hearing_officer(soup),
