@@ -1,0 +1,14 @@
+[Unit]
+Description=Eviction Scraper Server
+After=network.target
+
+[Service]
+Type=simple
+User=eviction
+Group=eviction
+WorkingDirectory=/usr/share/eviction
+StandardOutput=syslog
+ExecStart=/opt/eviction-hearing-parser/venv/bin/python /opt/eviction-hearing-parser/app/serve.py
+
+[Install]
+WantedBy=multi-user.target

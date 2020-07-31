@@ -1,0 +1,12 @@
+[Unit]
+Description=Eviction Scraper Work Queue Worker
+After=network.target scrape-worker.timer
+Requires=eviction-scrape-worker.timer
+
+[Service]
+Type=oneshot
+WorkingDirectory=/usr/share/eviction
+ExecStart=/opt/eviction-hearing-parser/app/look-for-work.sh
+
+[Install]
+WantedBy=multi-user.target

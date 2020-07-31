@@ -1,0 +1,11 @@
+[Unit]
+Description=Eviction Scraper Work Queue Worker Timer
+After=network.target
+
+[Timer]
+OnActiveSec=1s
+OnUnitActiveSec=1h
+Unit=eviction-scrape-worker.service
+
+[Install]
+WantedBy=multi-user.target
