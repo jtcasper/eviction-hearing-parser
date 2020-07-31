@@ -111,3 +111,17 @@ def insert_case_work_logs(case_ids):
         "INSERT INTO CASE_WORK_LOG (ID, NEEDS_WORK) VALUES (?, 1) ON CONFLICT (ID) DO UPDATE SET NEEDS_WORK=1",
         case_ids,
     )
+
+
+def update_case_work_logs(case_ids):
+    """
+    Marks CASE_WORK_LOGs as worked.
+    """
+    if type(case_ids) is not list:
+        # Handle a single case_id being requested
+        case_ids = [case_ids]
+
+    conn = sqlite3.connect("cases.db", isolation_level=None)
+    conn.execute("pragma journal_mode=wal")
+    curs = conn.cursor()
+    curs.executemany("UPDATE CASE_WORK_LOG SET NEEDS_WORK = 0 WHERE ID = ?", case_ids)
