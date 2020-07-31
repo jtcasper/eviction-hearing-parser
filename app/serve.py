@@ -20,7 +20,7 @@ def work_csv():
     case_ids = [case_id.decode("utf-8") for case_id in csv_bytes.splitlines()]
     persist.insert_case_work_logs([(case_id,) for case_id in case_ids])
     work_rows = persist.get_case_work_logs(case_ids)
-    return render_template("work_csv.html", work_rows=work_rows)
+    return (render_template("work_csv.html", work_rows=work_rows), 202)
 
 
 @app.route("/make_csv", methods=["POST"])
