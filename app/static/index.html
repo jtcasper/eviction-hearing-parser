@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travis County Eviction Scraper</title>
+    </head>
+    <body>
+        <form action="/work_csv" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Upload a Case Number CSV to be worked</legend>
+                <label for="file">Select CSV</label>
+                <input type="file" id="file" name="file" accept=".csv" required="true"/>
+                <br/>
+                <label for="submit">Upload CSV</label>
+                <input type="submit" value="Upload CSV"/>
+            </fieldset>
+        </form>
+        <form action="/make_csv" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Upload a Case Number CSV to create output CSV</legend>
+                <label for="file">Select CSV</label>
+                <input type="file" id="file" name="file" accept=".csv" required="true"/>
+                <br/>
+                <label for="submit">Upload CSV</label>
+                <input type="submit" value="Upload CSV"/>
+            </fieldset>
+        </form>
+    </body>
+</html>

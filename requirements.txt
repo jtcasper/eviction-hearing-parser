@@ -3,3 +3,4 @@ BeautifulSoup4
 click
 selenium
 simplejson
+flask

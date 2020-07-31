@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Case Data Freshness</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Case Id</th>
+                    <th>Last Updated<th>
+                    <th>Freshness<th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for work in work_rows %}
+                    <tr>
+                        <td>{{ work['ID'] }}</td>
+                        <td>{{ work['UPDATED_TIMESTAMP'] }}</td>
+                        <td>{{ work['NEEDS_WORK'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
