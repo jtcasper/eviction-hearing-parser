@@ -10,6 +10,8 @@ def get_case(case_id: str):
     curs.execute("SELECT * FROM V_CASE WHERE ID = ?", (case_id,))
     case = curs.fetchone()
     curs.close()
+    if case is None:
+        return None
     return dict(case)
 
 
