@@ -2,7 +2,6 @@ from io import StringIO
 import csv
 
 from flask import Flask, request, make_response, render_template
-import hearing
 import persist
 
 app = Flask(__name__)
