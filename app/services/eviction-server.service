@@ -9,6 +9,7 @@ Group=eviction
 WorkingDirectory=/usr/share/eviction
 StandardOutput=syslog
 ExecStart=/opt/eviction-hearing-parser/venv/bin/python /opt/eviction-hearing-parser/app/serve.py
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
