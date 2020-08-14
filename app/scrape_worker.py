@@ -9,7 +9,7 @@ def work():
         case = hearing.fetch_parsed_case(case_id)
         if case is not None:
             persist.rest_case(case)
-            persist.update_case_work_logs((case_id,))
+            persist.update_case_work_logs(case_id)
 
 
 if __name__ == "__main__":

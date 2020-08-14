@@ -1,5 +1,5 @@
 import sqlite3
-
+from time import time
 
 def get_case(case_id: str):
     conn = sqlite3.connect("cases.db")
@@ -123,7 +123,10 @@ def update_case_work_logs(case_ids):
         # Handle a single case_id being requested
         case_ids = [case_ids]
 
+    update_time = int(time())
+    params = [(update_time, case_id) for case_id in case_ids]
+
     conn = sqlite3.connect("cases.db", isolation_level=None)
     conn.execute("pragma journal_mode=wal")
     curs = conn.cursor()
-    curs.executemany("UPDATE CASE_WORK_LOG SET NEEDS_WORK = 0 WHERE ID = ?", case_ids)
+    curs.executemany("UPDATE CASE_WORK_LOG SET NEEDS_WORK = 0, UPDATED_TIMESTAMP = ? WHERE ID = ?", params)
