@@ -5,6 +5,8 @@ Requires=eviction-scrape-worker.timer
 
 [Service]
 Type=oneshot
+User=eviction
+Group=eviction
 WorkingDirectory=/usr/share/eviction
 ExecStart=/opt/eviction-hearing-parser/app/look-for-work.sh
 Environment=PATH=/usr/bin:/usr/share/eviction
